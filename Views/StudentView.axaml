@@ -1,0 +1,99 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls"
+        xmlns:vm="using:UniversityManager.ViewModels"
+        x:Class="UniversityManager.Views.StudentView"
+        x:DataType="vm:StudentViewModel"
+        Title="Student Dashboard"
+        Width="900" Height="700">
+  
+  <StackPanel>
+    <!-- Notification message -->
+    <TextBlock Text="{Binding NotificationMessage}" 
+               Foreground="Green" 
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Margin="0,10,0,10"/>
+
+    <Grid Margin="10">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      
+      <StackPanel Grid.Column="0" Spacing="20">
+        <StackPanel>
+          <TextBlock Text="Available Subjects" FontWeight="Bold" FontSize="16" />
+          <!-- Search TextBox -->
+          <controls:TextBox Watermark="Search subjects..."
+                            Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="0,0,0,10"/>
+          <controls:ListBox x:Name="AvailableSubjectsList"
+                            ItemsSource="{Binding FilteredAvailableSubjects}"
+                            SelectedItem="{Binding SelectedAvailableSubject}"
+                            Height="200">
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding Name}" />
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </controls:ListBox>
+          <controls:Button Content="Enroll"
+                           Command="{Binding EnrollCommand}"
+                           CommandParameter="{Binding SelectedItem, ElementName=AvailableSubjectsList}"
+                           Margin="0,10,0,0" />
+        </StackPanel>
+  
+        <!-- Enrolled Subjects Section -->
+        <StackPanel>
+          <TextBlock Text="Enrolled Subjects" FontWeight="Bold" FontSize="16" />
+          <controls:ListBox x:Name="EnrolledSubjectsList"
+                            ItemsSource="{Binding EnrolledSubjects}"
+                            SelectedItem="{Binding SelectedEnrolledSubject}"
+                            Height="200">
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding Name}" />
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </controls:ListBox>
+          <controls:Button Content="Drop"
+                           Command="{Binding DropCommand}"
+                           CommandParameter="{Binding SelectedItem, ElementName=EnrolledSubjectsList}"
+                           Margin="0,10,0,0" />
+        </StackPanel>
+      </StackPanel>
+  
+      <!-- Right Panel: Subject Details + Logout Button -->
+      <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="20,0,0,0">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+  
+          <!-- Subject Details -->
+          <StackPanel Grid.Row="0">
+            <TextBlock Text="Selected Subject Details" FontWeight="Bold" FontSize="16" />
+            
+            <TextBlock Text="Name:" FontWeight="Bold" Margin="0,10,0,0" />
+            <TextBlock Text="{Binding SelectedSubject.Name}" />
+  
+            <TextBlock Text="Teacher:" FontWeight="Bold" Margin="0,10,0,0" />
+            <TextBlock Text="{Binding SelectedSubjectTeacherName}" />
+  
+            <TextBlock Text="Description:" FontWeight="Bold" Margin="0,10,0,0" />
+            <TextBlock Text="{Binding SelectedSubject.Description}" />
+          </StackPanel>
+  
+          <!-- Logout Button -->
+          <controls:Button Grid.Row="1"
+                           Content="Logout"
+                           HorizontalAlignment="Right"
+                           Margin="0,20,0,0"
+                           Click="OnLogoutButtonClick" />
+        </Grid>
+      </Border>
+    </Grid>
+  </StackPanel>
+</Window>

@@ -1,0 +1,101 @@
+{
+  "Students": [
+    {
+      "Id": 1,
+      "Name": "John Student",
+      "Username": "student1",
+      "Password": "pass1",
+      "EnrolledSubjects": []
+    },
+    {
+      "Id": 2,
+      "Name": "Boyd Student",
+      "Username": "student2",
+      "Password": "pass1",
+      "EnrolledSubjects": []
+    }
+  ],
+  "Teachers": [
+    {
+      "Id": 1,
+      "Name": "Jane Kawalski",
+      "Username": "teacher1",
+      "Password": "pass1",
+      "Subjects": []
+    },
+    {
+      "Id": 2,
+      "Name": "Peter Rouge",
+      "Username": "teacher2",
+      "Password": "pass1",
+      "Subjects": []
+    },
+    {
+      "Id": 3,
+      "Name": "Chris Brown",
+      "Username": "teacher3",
+      "Password": "pass1",
+      "Subjects": []
+    }
+  ],
+  "Subjects": [
+    {
+      "Id": 1,
+      "Name": "OOP",
+      "Description": "Object Oriented Programming",
+      "TeacherId": 3,
+      "TeacherName": "Chris Brown",
+      "StudentsEnrolled": []
+    },
+    {
+      "Id": 2,
+      "Name": "AOOP",
+      "Description": "Advanced Object Oriented Programming",
+      "TeacherId": 3,
+      "TeacherName": "Chris Brown",
+      "StudentsEnrolled": []
+    },
+    {
+      "Id": 3,
+      "Name": "Math 1",
+      "Description": "OK level math",
+      "TeacherId": 2,
+      "TeacherName": "Peter Rouge",
+      "StudentsEnrolled": []
+    },
+    {
+      "Id": 4,
+      "Name": "Math 2",
+      "Description": "A bit harder than math1",
+      "TeacherId": 2,
+      "TeacherName": "Peter Rouge",
+      "StudentsEnrolled": [
+        1
+      ]
+    },
+    {
+      "Id": 5,
+      "Name": "Math 3",
+      "Description": "Harder than math2",
+      "TeacherId": 2,
+      "TeacherName": "Peter Rouge",
+      "StudentsEnrolled": []
+    },
+    {
+      "Id": 6,
+      "Name": "Physics",
+      "Description": "great to learn",
+      "TeacherId": 1,
+      "TeacherName": "Jane Kawalski",
+      "StudentsEnrolled": []
+    },
+    {
+      "Id": 7,
+      "Name": "Statics and materials",
+      "Description": "Hello students",
+      "TeacherId": 1,
+      "TeacherName": "Jane Kawalski",
+      "StudentsEnrolled": []
+    }
+  ]
+}

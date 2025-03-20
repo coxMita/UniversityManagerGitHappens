@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls"
+        xmlns:vm="using:UniversityManager.ViewModels"
+        x:Class="UniversityManager.Views.LoginView"
+        x:DataType="vm:LoginViewModel"
+        Title="Login"
+        Width="900" Height="600">
+ 
+  <Window.DataContext>
+    <vm:LoginViewModel />
+  </Window.DataContext>
+  <Border Padding="10">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
+      <Grid Width="100" Height="100">
+        <!-- Default image -->
+        <Image x:Name="LogoImage1" Source="avares://UniversityManager/Assets/yeti.png" 
+               Width="120" Height="120" IsVisible="True" />
+        <!-- Second image, initially hidden -->
+        <Image x:Name="LogoImage2" Source="avares://UniversityManager/Assets/yeti2.png" 
+               Width="120" Height="120" IsVisible="False" />
+      </Grid>
+      
+      <TextBlock Text="Please Log In" FontSize="18" />
+
+      <!-- Username field -->
+      <controls:TextBox x:Name="UsernameBox" 
+                        Watermark="Username"
+                        Text="{Binding Username}" />
+
+      <!-- Password field -->
+      <controls:TextBox x:Name="PasswordBox"
+                        PasswordChar="*"
+                        Watermark="Enter your password"
+                        Text="{Binding Password}" />
+
+      <!-- Show/Hide Password CheckBox -->
+      <controls:CheckBox Content="Show" Margin="5,0,0,0" VerticalAlignment="Center" 
+                           Checked="OnShowPasswordChecked" Unchecked="OnShowPasswordUnchecked"/>
+
+      <!-- Role selection: Student or Teacher -->
+      <controls:ComboBox x:Name="RoleComboBox"
+                         ItemsSource="{Binding Roles}"                         
+                         SelectedItem="{Binding SelectedRole}" />
+
+      <!-- Login button -->
+      <controls:Button Content="Login"
+                       Command="{Binding LoginCommand}" />
+    </StackPanel>
+  </Border>
+</Window>

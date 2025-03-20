@@ -1,0 +1,7 @@
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\UniversityManager.csproj.AssemblyReference.cache
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\Avalonia\Resources.Inputs.cache
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\Avalonia\resources
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\UniversityManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\UniversityManager.AssemblyInfoInputs.cache
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\UniversityManager.AssemblyInfo.cs
+C:\Users\Mihai\Desktop\hwww3\UniversityManager\obj\Debug\net6.0\UniversityManager.csproj.CoreCompileInputs.cache
